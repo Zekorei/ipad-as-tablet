@@ -1,0 +1,12 @@
+# macOS / XCode
+ios/build/
+ios/DerivedData/
+
+# Windows
+pc/build/
+*.exe
+*.obj
+
+# IDE
+.vscode/
+.DS_Store
