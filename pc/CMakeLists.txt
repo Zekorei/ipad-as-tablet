@@ -10,13 +10,13 @@ set(SOURCES
     src/main.cpp
     src/network.cpp
     src/input.cpp
-    src/protocol.cpp
+    src/packet.cpp
 )
 
 set(HEADERS
     include/network.h
     include/input.h
-    include/protocol.h
+    include/packet.h
 )
 
 # Executable
@@ -30,6 +30,7 @@ endif()
 # Include directories
 target_include_directories(ipad_input_pc PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../shared
 )
 
 # Compiler warnings

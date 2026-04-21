@@ -3,7 +3,7 @@
 #include<ws2tcpip.h>
 #include<cstdint>
 
-#include"shared/protocol.h"
+#include"protocol.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -70,10 +70,10 @@ int main() {
         // TODO: replace with queue
         std::cout
             << "x: " << packet.x
-            << "y: " << packet.y
-            << "p: " << packet.pressure
-            << "flags: " << (int)packet.flags
-            << "ts: " << packet.timestamp
+            << " y: " << packet.y
+            << " p: " << packet.pressure
+            << " flags: " << (int)packet.flags
+            << " ts: " << packet.timestamp
             << std::endl;
     }
 
