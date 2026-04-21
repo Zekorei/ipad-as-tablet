@@ -3,8 +3,10 @@
 #include<ws2tcpip.h>
 #include<cstdint>
 
+#include"input.h"
 #include"protocol.h"
 
+#pragma once
 #pragma comment(lib, "ws2_32.lib")
 
 // Constants
@@ -68,13 +70,14 @@ int main() {
 
         // temporary debug
         // TODO: replace with queue
-        std::cout
-            << "x: " << packet.x
-            << " y: " << packet.y
-            << " p: " << packet.pressure
-            << " flags: " << (int)packet.flags
-            << " ts: " << packet.timestamp
-            << std::endl;
+        // std::cout
+        //     << "x: " << packet.x
+        //     << " y: " << packet.y
+        //     << " p: " << packet.pressure
+        //     << " flags: " << (int)packet.flags
+        //     << " ts: " << packet.timestamp
+        //     << std::endl;
+        moveMouse(packet.x, packet.y);
     }
 
     closesocket(sock);
