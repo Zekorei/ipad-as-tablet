@@ -72,16 +72,16 @@ int main() {
         bool moveEvent = (packet.flags & Protocol::MOVE) != 0;
 
         if (moveEvent) {
-            moveMouse(packet.x, packet.y);
+            Input::moveMouse(packet.x, packet.y);
         }
 
         if (downEvent && !mouseIsDown) {
-            mouseDown();
+            Input::mouseDown();
             mouseIsDown = true;
         }
         
         if (upEvent && mouseIsDown) {
-            mouseUp();
+            Input::mouseUp();
             mouseIsDown = false;
         }
     }

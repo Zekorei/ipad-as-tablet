@@ -5,7 +5,7 @@
 /**
  * @brief Input handling for mouse control.
  */
-namespace Input {}
+namespace Input {
 
     /**
      * @brief Initialize screen metrics for Windows display scaling.
