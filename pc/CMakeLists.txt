@@ -10,13 +10,11 @@ set(SOURCES
     src/main.cpp
     src/network.cpp
     src/input.cpp
-    src/packet.cpp
 )
 
 set(HEADERS
     include/network.h
     include/input.h
-    include/packet.h
 )
 
 # Executable

@@ -7,7 +7,7 @@
 static int SCREEN_WIDTH = 0;
 static int SCREEN_HEIGHT = 0;
 
-void initScreenMetrics() {
+void Input::initScreenMetrics() {
     SCREEN_WIDTH = GetSystemMetrics(SM_CXSCREEN);
     SCREEN_HEIGHT = GetSystemMetrics(SM_CYSCREEN);
 }
@@ -21,7 +21,7 @@ static void normalizeToAbsolute(float x, float y, LONG &outX, LONG &outY) {
     outY = (LONG)(y * 65535.0f);
 }
 
-void moveMouse(float x, float y) {
+void Input::moveMouse(float x, float y) {
     INPUT input{};
     input.type = INPUT_MOUSE;
 
@@ -35,14 +35,14 @@ void moveMouse(float x, float y) {
     SendInput(1, &input, sizeof(INPUT));
 }
 
-void mouseDown() {
+void Input::mouseDown() {
     INPUT input{};
     input.type = INPUT_MOUSE;
     input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
     SendInput(1, &input, sizeof(INPUT));
 }
 
-void mouseUp() {
+void Input::mouseUp() {
     INPUT input{};
     input.type = INPUT_MOUSE;
     input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
