@@ -3,21 +3,32 @@
 #include<windows.h>
 
 /**
- * @brief Initialize screen metrics for Windows display scaling.
+ * @brief Input handling for mouse control.
  */
-void initScreenMetrics();
+namespace Input {}
 
-/**
- * @brief Move the mouse cursor to normalized coordinates
- */
-void moveMouse(float x, float y);
+    /**
+     * @brief Initialize screen metrics for Windows display scaling.
+     */
+    void initScreenMetrics();
 
-/**
- * @brief Mouse button down.
- */
-void mouseDown();
+    /**
+     * @brief Move the mouse cursor to normalized coordinates.
+     * 
+     * Coverts a coordinate in the range `[0, 1]` to absolute screen coordinates and moves the mouse cursor there.
+     * 
+     * @param x Normalized x coordinate `[0.0, 1.0]`.
+     * @param y Normalized y coordinate `[0.0, 1.0]`.
+     */
+    void moveMouse(float x, float y);
 
-/**
- * @brief Mouse button up.
- */
-void mouseUp();
+    /**
+     * @brief Mouse button down.
+     */
+    void mouseDown();
+
+    /**
+     * @brief Mouse button up.
+     */
+    void mouseUp();
+}
