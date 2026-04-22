@@ -19,13 +19,33 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 PACKET_FORMAT = "fffBQ"
 
 # test generator
-def generate_input(t):
+def generate_input_circle(t):
     # normalized circular motion
     x = 0.5 + 0.3 * math.cos(t)
     y = 0.5 + 0.3 * math.sin(t)
 
     pressure = 1.0
-    flags = 0b00000010
+
+    if int(t) % 4 < 2:
+        flags = 0b00000001
+    else:
+        flags = 0b00000100
+
+    timestamp = int(time.time() * 1000)
+
+    return x, y, pressure, flags, timestamp
+
+# generate alternate click and release every interval
+def generate_click(t):
+    x = 0.5
+    y = 0.5
+
+    pressure = 1.0
+
+    if int(t) % 2 == 0:
+        flags = 0b00000001
+    else:
+        flags = 0b00000100
 
     timestamp = int(time.time() * 1000)
 
@@ -34,10 +54,12 @@ def generate_input(t):
 def main():
     print(f"Sending packets to {PC_IP}: {PC_PORT}")
 
+    time.sleep(2)
+
     start = time.time()
     
     while (t := time.time() - start) < 10:
-        x, y, p, f, ts = generate_input(t)
+        x, y, p, f, ts = generate_input_circle(t)
 
         packet = struct.pack(
             PACKET_FORMAT,
