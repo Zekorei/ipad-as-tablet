@@ -32,9 +32,12 @@ struct InputPacket {
 
 # Development Timeline
 ### Phase 1: (PC-Only)
-- [ ] Build UDP receiver
-- [ ] Simulate input stream
-- [ ] Inject mouse movement
+- [X] Build UDP receiver
+- [X] Simulate input stream
+- [X] Inject mouse movement
+- [ ] Add coordinate mapping
+- [ ] Smoothing filter
+- [ ] Queue and threading
 ### Phase 2: (iPad Integration)
 - [ ] Build input sender in swift
 - [ ] Connect to receiver
@@ -52,4 +55,4 @@ This is a systems programming and real time I/O project focusing on
 - and cross-platform architecture design
 
 # Status
-Early design phase.
+Early development phase. Currently designing the receiver side.
