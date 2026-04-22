@@ -16,7 +16,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 # uint8 flags
 # uint64 timestamp
 
-PACKET_FORMAT = "fffBQ"
+PACKET_FORMAT = "fffB3xQ"
 
 # test generator
 def generate_input_circle(t):
