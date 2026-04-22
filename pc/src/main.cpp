@@ -6,25 +6,22 @@
 #include"input.h"
 #include"protocol.h"
 
-#pragma once
 #pragma comment(lib, "ws2_32.lib")
 
-// Constants
-static const int PORT = 5000;
-static const int BUFFER_SIZE = sizeof(InputPacket);
+/// @brief UDP port number
+constexpr int PORT = 5000;
 
-// Winsock init helper
+/**
+ * @brief Initialize Winsock.
+ * 
+ * @return true Success.
+ * @return false Failure.
+ */
 bool initWinsock() {
     WSADATA wsaData;
-    int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
-    if (result != 0) {
-        std::cerr << "WSAStartup failed: " << result << std::endl;
-        return false;
-    }
-    return true;
+    return WSAStartup(MAKEWORD(2, 2), &wsaData) == 0;
 }
 
-// Main
 int main() {
     if (!initWinsock()) {
         return 1;
@@ -49,15 +46,17 @@ int main() {
 
     std::cout << "Listening on UDP port " << PORT << "..." << std::endl;
 
+    bool mouseIsDown = false;
+
     while (true) {
-        InputPacket packet;
+        Protocol::InputPacket packet{};
         sockaddr_in clientAddr{};
         int clientSize = sizeof(clientAddr);
 
         int bytesReceived = recvfrom(
             sock,
             reinterpret_cast<char*>(&packet),
-            BUFFER_SIZE,
+            sizeof(packet),
             0,
             (sockaddr*)&clientAddr,
             &clientSize
@@ -68,16 +67,23 @@ int main() {
             continue;
         }
 
-        // temporary debug
-        // TODO: replace with queue
-        // std::cout
-        //     << "x: " << packet.x
-        //     << " y: " << packet.y
-        //     << " p: " << packet.pressure
-        //     << " flags: " << (int)packet.flags
-        //     << " ts: " << packet.timestamp
-        //     << std::endl;
-        moveMouse(packet.x, packet.y);
+        bool downEvent = (packet.flags & Protocol::DOWN) != 0;
+        bool upEvent = (packet.flags & Protocol::UP) != 0;
+        bool moveEvent = (packet.flags & Protocol::MOVE) != 0;
+
+        if (moveEvent) {
+            moveMouse(packet.x, packet.y);
+        }
+
+        if (downEvent && !mouseIsDown) {
+            mouseDown();
+            mouseIsDown = true;
+        }
+        
+        if (upEvent && mouseIsDown) {
+            mouseUp();
+            mouseIsDown = false;
+        }
     }
 
     closesocket(sock);

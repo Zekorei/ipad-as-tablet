@@ -5,6 +5,7 @@ import math
 
 PC_IP = "127.0.0.1"
 PC_PORT = 5000
+FRAME_RATE = 120
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -35,9 +36,7 @@ def main():
 
     start = time.time()
     
-    while True:
-        t = time.time() - start
-
+    while (t := time.time() - start) < 10:
         x, y, p, f, ts = generate_input(t)
 
         packet = struct.pack(
@@ -51,7 +50,7 @@ def main():
 
         sock.sendto(packet, (PC_IP, PC_PORT))
 
-        time.sleep(1/120)
+        time.sleep(1/FRAME_RATE)
 
 if __name__ == "__main__":
     main()
