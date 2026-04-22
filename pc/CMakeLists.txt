@@ -6,15 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Source files
-set(SOURCES
-    src/main.cpp
-    src/network.cpp
-    src/input.cpp
+set(GLOB_RECURSE SOURCES
+    src/*.cpp
 )
 
-set(HEADERS
-    include/network.h
-    include/input.h
+set(GLOB_RECURSE HEADERS
+    include/*.h
 )
 
 # Executable

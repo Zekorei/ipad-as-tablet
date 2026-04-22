@@ -4,29 +4,26 @@
 
 #include"input.h"
 
-static int SCREEN_WIDTH = 0;
-static int SCREEN_HEIGHT = 0;
-
-void Input::initScreenMetrics() {
-    SCREEN_WIDTH = GetSystemMetrics(SM_CXSCREEN);
-    SCREEN_HEIGHT = GetSystemMetrics(SM_CYSCREEN);
-}
-
 /**
  * @brief Normalize coordinates to absolute screen coordinates by Windows convention.
  * @internal
  */
-static void normalizeToAbsolute(float x, float y, LONG &outX, LONG &outY) {
-    outX = (LONG)(x * 65535.0f);
-    outY = (LONG)(y * 65535.0f);
+static void normalizeToAbsolute(const Common::NormalizedPoint& point, LONG &outX, LONG &outY) {
+    outX = (LONG)(point.x * 65535.0f);
+    outY = (LONG)(point.y * 65535.0f);
 }
 
-void Input::moveMouse(float x, float y) {
-    INPUT input{};
-    input.type = INPUT_MOUSE;
+void Input::moveMouse(Common::NormalizedPoint point) {
+#ifdef NDEBUG
+    point.validate();
+#endif
 
+    INPUT input{};
     LONG dx, dy;
-    normalizeToAbsolute(x, y, dx, dy);
+
+    input.type = INPUT_MOUSE;
+    
+    normalizeToAbsolute(point, dx, dy);
 
     input.mi.dx = dx;
     input.mi.dy = dy;

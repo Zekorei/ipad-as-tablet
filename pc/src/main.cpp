@@ -4,6 +4,7 @@
 #include<cstdint>
 
 #include"input.h"
+#include"mapper.h"
 #include"protocol.h"
 
 #pragma comment(lib, "ws2_32.lib")
@@ -47,6 +48,9 @@ int main() {
     std::cout << "Listening on UDP port " << PORT << "..." << std::endl;
 
     bool mouseIsDown = false;
+    Input::InputMapConfig config;
+    Common::ScreenInfo screenInfo;
+    Input::InputMapper mapper(config, screenInfo);
 
     while (true) {
         Protocol::InputPacket packet{};
@@ -72,7 +76,9 @@ int main() {
         bool moveEvent = (packet.flags & Protocol::MOVE) != 0;
 
         if (moveEvent) {
-            Input::moveMouse(packet.x, packet.y);
+            Common::NormalizedPoint inputPoint{ packet.x, packet.y };
+            Common::NormalizedPoint mappedPoint = mapper.map(inputPoint);
+            Input::moveMouse(mappedPoint);
         }
 
         if (downEvent && !mouseIsDown) {
