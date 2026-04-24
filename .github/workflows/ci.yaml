@@ -31,17 +31,17 @@ jobs:
       run: cmake --build build --config Release
 
   tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y cmake g++
+    - name: Set up CMake
+      uses: lukka/get-cmake@latest
 
-    - name: Configure CMake
-      run: cmake -S pc -B build -DCMAKE_BUILD_TYPE=Debug
+    - name: Configure test
+      run: cmake -S tests -B build -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build test
       run: cmake --build build
