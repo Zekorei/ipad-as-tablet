@@ -19,6 +19,26 @@ namespace Common {
             assert(x >= 0.0f && x <= 1.0f);
             assert(y >= 0.0f && y <= 1.0f);
         }
+
+        inline NormalizedPoint operator+(NormalizedPoint other) const {
+            return { x + other.x, y + other.y };
+        }
+
+        inline NormalizedPoint operator-(NormalizedPoint other) const {
+            return { x - other.x, y - other.y };
+        }
+
+        inline NormalizedPoint operator/(NormalizedPoint other) const {
+            return { x / other.x, y / other.y };
+        }
+
+        inline NormalizedPoint scale(float scalar) const {
+            return { x * scalar, y * scalar };
+        }
+
+        inline NormalizedPoint translate(float offset) const {
+            return { x + offset, y + offset };
+        }
     };
 
     /**
@@ -33,6 +53,11 @@ namespace Common {
             width = GetSystemMetrics(SM_CXSCREEN);
             height = GetSystemMetrics(SM_CYSCREEN);
         }
+
+        /**
+         * @brief Construct screen info with specified width and height.
+         */
+        ScreenInfo(int w, int h) : width(w), height(h) {}
 
         /// @brief Get the aspect ratio of the screen (width / height).
         inline float aspectRatio() const {

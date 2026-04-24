@@ -4,33 +4,66 @@ project(IpadInputSystemPC VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_COMPILE_COMMANDS ON)
 
-# Source files
-set(GLOB_RECURSE SOURCES
-    src/*.cpp
+# Dependencies
+include(FetchContent)
+
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.5.0
 )
 
-set(GLOB_RECURSE HEADERS
-    include/*.h
+FetchContent_MakeAvailable(Catch2)
+
+# Core library
+add_library(ipad_input_pc_core
+    src/mapper.cpp
+    src/input.cpp
 )
 
-# Executable
-add_executable(ipad_input_pc ${SOURCES} ${HEADERS})
+target_include_directories(ipad_input_pc_core 
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/../shared    
+)
 
-# Windows-specific networking libraries
+# Executable target
+add_executable(ipad_input_pc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+)
+
+target_link_libraries(ipad_input_pc PRIVATE ipad_input_pc_core)
+
 if (WIN32)
     target_link_libraries(ipad_input_pc PRIVATE ws2_32)
 endif()
 
-# Include directories
-target_include_directories(ipad_input_pc PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../shared
+# Tests
+enable_testing()
+
+add_executable(ipad_input_pc_tests
+    tests/test_mapper.cpp
 )
 
+target_link_libraries(ipad_input_pc_tests 
+    PRIVATE 
+        ipad_input_pc_core
+        Catch2::Catch2WithMain
+)
+
+add_test(NAME IpadInputSystemTests COMMAND ipad_input_pc_tests)
+
 # Compiler warnings
-if (MSVC)
-    target_compile_options(ipad_input_pc PRIVATE /W4)
-else()
-    target_compile_options(ipad_input_pc PRIVATE -Wall -Wextra -Wpedantic)
-endif()
+function(enable_warnings target)
+    if (MSVC)
+        target_compile_options(${target} PRIVATE /W4)
+    else()
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+endfunction()
+
+enable_warnings(ipad_input_pc_core)
+enable_warnings(ipad_input_pc)
+enable_warnings(ipad_input_pc_tests)
