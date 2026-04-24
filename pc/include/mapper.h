@@ -55,8 +55,8 @@ namespace Input {
         void setScreenInfo(const Common::ScreenInfo& screenInfo);
 
         /**
-         * @brief Map normalized input coordinates to absolute screen coordinates and apply sensitivity and 
-         * aspect ratio adjustments.
+         * @brief Map input coordinates to normalized absolute screen coordinates. Applies subregion scaling,
+         * aspect ratio adjustments, and sensitivity scaling according to the given configuration `config`.
          * 
          * @param input Normalized input coordinates from the tablet (0.0 to 1.0)
          * @return Common::NormalizedPoint Normalized output coordinates for the screen (0.0 to 1.0) after mapping

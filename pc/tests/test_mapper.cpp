@@ -39,7 +39,7 @@ struct MapperFixture {
 // tests
 // TODO: rewrite tests later
 
-TEST_CASE_METHOD(MapperFixture, "Center remains invariant with full subregion", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "center_is_invariant_under_full_region", "[mapper]") {
     NormalizedPoint p{ 0.5f, 0.5f };
     auto out = mapper.map(p);
 
@@ -47,7 +47,7 @@ TEST_CASE_METHOD(MapperFixture, "Center remains invariant with full subregion", 
     REQUIRE(approx(out.y, 0.5f));
 }
 
-TEST_CASE_METHOD(MapperFixture, "Center remains invariant with proper subregion", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "center_is_invariant_under_proper_subregion", "[mapper]") {
     InputMapConfig config = {
         { 0.5f, 0.5f },
         { 0.8f, 0.8f },
@@ -64,7 +64,7 @@ TEST_CASE_METHOD(MapperFixture, "Center remains invariant with proper subregion"
     REQUIRE(approx(out.y, 0.5f));
 }
 
-TEST_CASE_METHOD(MapperFixture, "Output is clamped to [0, 1] with full subregion", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "output_is_clamped_under_full_region", "[mapper]") {
     for (float x = -0.5f; x <= 1.5f; x += 0.2f) {
         for (float y = -0.5f; y <= 1.5f; y += 0.2f) {
             auto out = mapper.map({x, y});
@@ -76,7 +76,7 @@ TEST_CASE_METHOD(MapperFixture, "Output is clamped to [0, 1] with full subregion
     }
 }
 
-TEST_CASE_METHOD(MapperFixture, "Output is clamped to [0, 1] with proper subregion", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "output_is_clamped_under_proper_subregion", "[mapper]") {
     InputMapConfig config = {
         { 0.5f, 0.5f },
         { 0.8f, 0.8f },
@@ -97,7 +97,7 @@ TEST_CASE_METHOD(MapperFixture, "Output is clamped to [0, 1] with proper subregi
     }
 }
 
-TEST_CASE_METHOD(MapperFixture, "Edge of subregion maps to edge of output", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "edge_of_subregion_maps_to_edge_of_output", "[mapper]") {
     InputMapConfig config = {
         { 0.5f, 0.5f },
         { 0.8f, 0.8f },
@@ -120,7 +120,7 @@ TEST_CASE_METHOD(MapperFixture, "Edge of subregion maps to edge of output", "[ma
     REQUIRE(approx(bottomLeft.y, 0.0f));
 }
 
-TEST_CASE_METHOD(MapperFixture, "Wide screen compresses x-axis", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "wide_screen_compresses_x_axis", "[mapper]") {
     mapper.setScreenInfo({ 1920, 1080 });
 
     float offset = 0.2f;
@@ -136,7 +136,7 @@ TEST_CASE_METHOD(MapperFixture, "Wide screen compresses x-axis", "[mapper]") {
     REQUIRE(approx(out2.y, 0.5f));
 }
 
-TEST_CASE_METHOD(MapperFixture, "Tall screen compresses y-axis", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "tall_screen_compresses_y_axis", "[mapper]") {
     mapper.setScreenInfo({ 1080, 1920 });
 
     float offset = 0.2f;
@@ -152,7 +152,7 @@ TEST_CASE_METHOD(MapperFixture, "Tall screen compresses y-axis", "[mapper]") {
     REQUIRE(approx(out2.x, 0.5f));
 }
 
-TEST_CASE_METHOD(MapperFixture, "Mapping is symmetric about center", "[mapper]") {
+TEST_CASE_METHOD(MapperFixture, "mapping_is_symmetric_about_center", "[mapper]") {
     float d = 0.2f;
 
     NormalizedPoint p1 { 0.5f - d, 0.5f };

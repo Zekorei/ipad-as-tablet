@@ -5,6 +5,7 @@ project(IpadInputSystemPC VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILE_COMMANDS ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
@@ -44,6 +45,12 @@ if (WIN32)
     target_link_libraries(ipad_input_pc PRIVATE ws2_32)
 endif()
 
+add_custom_target(run_app
+    COMMAND ${CMAKE_BINARY_DIR}/bin/ipad_input_pc
+    DEPENDS ipad_input_pc
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+
 # Tests
 enable_testing()
 
@@ -58,6 +65,12 @@ target_link_libraries(ipad_input_pc_tests
 )
 
 add_test(NAME IpadInputSystemTests COMMAND ipad_input_pc_tests)
+
+add_custom_target(run_tests
+    COMMAND ${CMAKE_BINARY_DIR}/bin/ipad_input_pc_tests
+    DEPENDS ipad_input_pc_tests
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 # Compiler warnings
 function(enable_warnings target)
