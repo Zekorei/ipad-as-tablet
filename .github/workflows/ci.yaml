@@ -31,14 +31,23 @@ jobs:
       run: cmake --build build --config Release
 
   tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y cmake g++
+
+    - name: Configure CMake
+      run: cmake -S pc -B build -DCMAKE_BUILD_TYPE=Debug
+
+    - name: Build test
+      run: cmake --build build
+
     - name: Run tests
-      run: echo "No tests implemented yet."
+      run: ctest --test-dir build --output-on-failure
 
   docs:
     runs-on: ubuntu-latest

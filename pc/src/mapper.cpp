@@ -61,7 +61,7 @@ Common::NormalizedPoint Input::InputMapper::scaleAspectRatio(const Common::Norma
 // public methods
 
 Common::NormalizedPoint Input::InputMapper::map(const Common::NormalizedPoint& point) {
-#ifdef NDEBUG
+#ifndef NDEBUG
     point.validate();
 #endif
     
@@ -76,7 +76,7 @@ Common::NormalizedPoint Input::InputMapper::map(const Common::NormalizedPoint& p
     sensitivityCorrected.x = std::clamp(sensitivityCorrected.x, 0.0f, 1.0f);
     sensitivityCorrected.y = std::clamp(sensitivityCorrected.y, 0.0f, 1.0f);
 
-#ifdef NDEBUG
+#ifndef NDEBUG
     point.validate();
 #endif
 

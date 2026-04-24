@@ -21,15 +21,12 @@ PACKET_FORMAT = "fffB3xQ"
 # test generator
 def generate_input_circle(t):
     # normalized circular motion
-    x = 0.5 + 0.3 * math.cos(t)
-    y = 0.5 + 0.3 * math.sin(t)
+    x = 0.5 + 0.25 * math.cos(t)
+    y = 0.5 + 0.25 * math.sin(t)
 
     pressure = 1.0
 
-    if int(t) % 4 < 2:
-        flags = 0b00000001
-    else:
-        flags = 0b00000100
+    flags = 0b00000010
 
     timestamp = int(time.time() * 1000)
 
