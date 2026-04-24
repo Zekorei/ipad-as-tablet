@@ -4,56 +4,81 @@
 
 Input::InputMapper::InputMapper(const InputMapConfig& config, const Common::ScreenInfo& screenInfo) {
     setConfig(config);
-    setScreenMetrics(screenInfo);
+    setScreenInfo(screenInfo);
 }
 
-void Input::InputMapper::setConfig(const InputMapConfig& config) {
-    this->config = config;
+Input::InputMapConfig Input::InputMapper::getConfig() const {
+    return config;
 }
 
-void Input::InputMapper::setScreenMetrics(const Common::ScreenInfo& screenInfo) {
-    this->screenInfo = screenInfo;
+void Input::InputMapper::setConfig(const InputMapConfig& newConfig) {
+    config = newConfig;
 }
 
-float Input::InputMapper::applyAspectRatio(float v, float center, float size) {
-    if (!config.lockAspectRatio) {
-        return v;
+Common::ScreenInfo Input::InputMapper::getScreenInfo() const {
+    return screenInfo;
+}
+
+void Input::InputMapper::setScreenInfo(const Common::ScreenInfo& newScreenInfo) {
+    screenInfo = newScreenInfo;
+}
+
+// private methods
+
+Common::NormalizedPoint Input::InputMapper::scaleSubregion(const Common::NormalizedPoint& point) {
+    auto scaled = point;
+
+    Common::NormalizedPoint halfSubregion = config.subregionDimensions.scale(0.5f);
+    Common::NormalizedPoint minSubregion = config.subregionCenter - halfSubregion;
+    Common::NormalizedPoint maxSubregion = config.subregionCenter + halfSubregion;
+
+    // Clamp points outside of the active area to the edges
+    scaled.x = std::clamp(scaled.x, minSubregion.x, maxSubregion.x);
+    scaled.y = std::clamp(scaled.y, minSubregion.y, maxSubregion.y);
+
+    // Remap points to the unit square
+    scaled = (scaled - minSubregion) / (maxSubregion - minSubregion);
+
+    return scaled;
+}
+
+Common::NormalizedPoint Input::InputMapper::scaleAspectRatio(const Common::NormalizedPoint& point) {
+    float aspectRatio;
+    
+    auto scaled = point;
+
+    if ((aspectRatio = screenInfo.aspectRatio()) > 1.0f) {
+        // Wide screen - compress x-axis
+        scaled.x = (scaled.x - 0.5f) / aspectRatio + 0.5f;
+    } else {
+        // Tall screen - compress y-axis
+        scaled.y = (scaled.y - 0.5f) * aspectRatio + 0.5f;
     }
 
-    float half = size / 2.0f;
-    float min = center - half;
-    float max = center + half;
-
-    v = std::clamp(v, min, max);
-
-    return (v - min) / (max - min);
+    return scaled;
 }
+
+// public methods
 
 Common::NormalizedPoint Input::InputMapper::map(const Common::NormalizedPoint& point) {
 #ifdef NDEBUG
     point.validate();
 #endif
+    
+    Common::NormalizedPoint scaledFullRegion = scaleSubregion(point);
+    Common::NormalizedPoint scaledAspect = scaleAspectRatio(scaledFullRegion);
+    Common::NormalizedPoint sensitivityCorrected = scaledAspect
+                                                    .translate(-0.5f)
+                                                    .scale(config.sensitivity)
+                                                    .translate(0.5f);
 
-    float normX = point.x;
-    float normY = point.y;
-
-    // Apply aspect ratio adjustments
-    normX = applyAspectRatio(normX, config.areaX, config.areaWidth);
-    normY = applyAspectRatio(normY, config.areaY, config.areaHeight);
-
-    // Apply sensitivity
-    normX = (normX - 0.5f) * config.sensitivity + 0.5f;
-    normY = (normY - 0.5f) * config.sensitivity + 0.5f;
-
-    // Scale to screen coordinates
-    LONG x = static_cast<LONG>(normX * screenInfo.width);
-    LONG y = static_cast<LONG>(normY * screenInfo.height);
-
-    Common::NormalizedPoint point{ static_cast<float>(x) / screenInfo.width, static_cast<float>(y) / screenInfo.height };
+    // Clamp points to [0, 1] after all transformations
+    sensitivityCorrected.x = std::clamp(sensitivityCorrected.x, 0.0f, 1.0f);
+    sensitivityCorrected.y = std::clamp(sensitivityCorrected.y, 0.0f, 1.0f);
 
 #ifdef NDEBUG
     point.validate();
 #endif
 
-    return point;
+    return sensitivityCorrected;
 }
