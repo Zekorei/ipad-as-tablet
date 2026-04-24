@@ -44,7 +44,7 @@ jobs:
       uses: lukka/get-cmake@latest
 
     - name: Configure test
-      run: cmake -S pc -B tests -DCMAKE_BUILD_TYPE=Debug
+      run: cmake -S pc -B build -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build test
       run: cmake --build build --config Debug
