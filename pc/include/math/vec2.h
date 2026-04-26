@@ -63,6 +63,6 @@ namespace Math {
          * 
          * @return Vec2 Returns a 2D point with the components no larger than `max` and no smaller than `min` pairwise.
          */
-        inline Vec2 clamp(const Vec2& min, const Vec2& max) const;
+        Vec2 clamp(const Vec2& min, const Vec2& max) const;
     };
 }

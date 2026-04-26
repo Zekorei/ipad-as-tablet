@@ -4,7 +4,10 @@
 #include<cstdint>
 
 #include"input.h"
-#include"mapper.h"
+#include"math/vec2.h"
+#include"pipeline/input_pipeline.h"
+#include"types/screen_info.h"
+#include"config/pipeline_config.h"
 #include"protocol.h"
 
 #pragma comment(lib, "ws2_32.lib")
@@ -25,7 +28,7 @@ bool initWinsock() {
 
 int main() {
     if (!initWinsock()) {
-        return 1;
+        return EXIT_FAILURE;
     }
 
     SOCKET sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -42,15 +45,16 @@ int main() {
         std::cerr << "Bind failed" << std::endl;
         closesocket(sock);
         WSACleanup();
-        return 1;
+        return EXIT_FAILURE;
     }
 
     std::cout << "Listening on UDP port " << PORT << "..." << std::endl;
 
     bool mouseIsDown = false;
-    Input::InputMapConfig config;
+
     Common::ScreenInfo screenInfo;
-    Input::InputMapper mapper(config, screenInfo);
+    Config::PipelineConfig config;
+    Pipeline::InputPipeline mapper(config, screenInfo);
 
     while (true) {
         Protocol::InputPacket packet{};
@@ -76,8 +80,8 @@ int main() {
         bool moveEvent = (packet.flags & Protocol::MOVE) != 0;
 
         if (moveEvent) {
-            Common::NormalizedPoint inputPoint{ packet.x, packet.y };
-            Common::NormalizedPoint mappedPoint = mapper.map(inputPoint);
+            Math::Vec2 inputPoint{ packet.x, packet.y };
+            Common::ScreenPoint mappedPoint = mapper.process(inputPoint);
             Input::moveMouse(mappedPoint);
         }
 
@@ -94,5 +98,5 @@ int main() {
 
     closesocket(sock);
     WSACleanup();
-    return 0;
+    return EXIT_SUCCESS;
 }

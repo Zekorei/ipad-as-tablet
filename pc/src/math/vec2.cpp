@@ -15,7 +15,7 @@ namespace Math {
         return { x + offset, y + offset };
     }
 
-    inline Vec2 Vec2::clamp(const Vec2& min, const Vec2& max) const {
+    Vec2 Vec2::clamp(const Vec2& min, const Vec2& max) const {
         return {
             std::clamp(x, min.x, max.x),
             std::clamp(y, min.y, max.y)
