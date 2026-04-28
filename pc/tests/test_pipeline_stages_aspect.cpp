@@ -5,8 +5,6 @@
 #include<catch2/catch_test_macros.hpp>
 #include"utils/test_utils.h"
 
-// TODO: update with constants
-
 TEST_CASE("center_is_invariant", "[aspect]") {
     Pipeline::Stages::Aspect aspect;
 
