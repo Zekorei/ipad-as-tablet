@@ -10,6 +10,7 @@ namespace Config {
     inline constexpr float default_subregion_center = 0.5f;
     inline constexpr float default_subregion_dimensions = 1.0f;
     inline constexpr float default_sensitivity = 1.0f;
+    inline constexpr bool default_aspect_lock = false;
 
     /**
      * @brief Configuration for normalized input to screen mapping. Primarily describes the active area on the tablet 
@@ -22,10 +23,17 @@ namespace Config {
 
         float sensitivity;                              ///< Sensitivity multiplier for input scaling
 
+        bool lockAspect;                                ///< Forces aspect ratio correction
+
         /// @brief Default constructor. Assumes the subregion is the full normalized area and no sensitivity correction.
         PipelineConfig();
 
         /// @brief Parameterized constructor.
-        PipelineConfig(Common::NormalizedPoint center, Common::NormalizedPoint dimensions, float sensitivity);
+        PipelineConfig(
+            Common::NormalizedPoint center, 
+            Common::NormalizedPoint dimensions, 
+            float sensitivity = default_sensitivity, 
+            bool lockAspect = default_aspect_lock
+        );
     };
 }

@@ -17,8 +17,8 @@ namespace Pipeline {
 
     Common::ScreenPoint InputPipeline::process(const Math::Vec2& point) {
        Math::Vec2 fullRegionPoint = subregion(point);
-       Math::Vec2 aspectCorrected = aspect(fullRegionPoint);
-       Common::NormalizedPoint clamped = clamp(aspectCorrected);
+       Math::Vec2 aspectCorrected = config.lockAspect ? aspect(fullRegionPoint) : fullRegionPoint;
+       Common::NormalizedPoint clamped = clamp(fullRegionPoint);
        Common::ScreenPoint screenPoint = display(clamped);
 
        return screenPoint;
