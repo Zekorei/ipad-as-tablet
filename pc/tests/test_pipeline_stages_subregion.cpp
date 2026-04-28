@@ -13,7 +13,7 @@ TEST_CASE("center_is_invariant", "[subregion]") {
         for (float y = Common::norm_min; y <= Common::norm_max; y += 0.2f) {
             auto center = Common::NormalizedPoint::create(x, y);
 
-            subregion = Pipeline::Stages::Subregion {{ center, dim, 1.0f }};
+            subregion = Pipeline::Stages::Subregion {{ center, dim }};
 
             Math::Vec2 p = subregion(center.toVec2());
             REQUIRE(TestUtils::approx(p.x, 0.5f));
@@ -26,7 +26,7 @@ TEST_CASE("edges_map_to_edge", "[subregion]") {
     auto center = Common::NormalizedPoint::create(0.5f);
     auto dim = Common::NormalizedPoint::create(0.8f);
 
-    Pipeline::Stages::Subregion subregion {{ center, dim, 1.0f }};
+    Pipeline::Stages::Subregion subregion {{ center, dim }};
 
     Math::Vec2 p1 { center.x() + dim.toVec2().scale(0.5f).x };
     Math::Vec2 p2 { center.y() - dim.toVec2().scale(0.5f).y };

@@ -12,7 +12,7 @@ namespace Config {
     PipelineConfig::PipelineConfig(
         Common::NormalizedPoint center, 
         Common::NormalizedPoint dimensions, 
-        float sensitivity = 1.0f,
-        bool lockAspect  = false
+        float sensitivity,
+        bool lockAspect
     ) : subregionCenter(center), subregionDimensions(dimensions), sensitivity(sensitivity), lockAspect(lockAspect) {}
 }
