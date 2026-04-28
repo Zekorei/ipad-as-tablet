@@ -2,7 +2,7 @@
 
 #include<windows.h>
 
-#include<types.h>
+#include"types/screen_point.h"
 
 /**
  * @brief Input handling for mouse control.
@@ -10,13 +10,11 @@
 namespace Input {
 
     /**
-     * @brief Move the mouse cursor to normalized coordinates.
+     * @brief Move the mouse cursor to absolute Windows mouse coordinates.
      * 
-     * Coverts a coordinate in the range `[0, 1]` to absolute screen coordinates and moves the mouse cursor there.
-     * 
-     * @param point Normalized input coordinates (0.0 to 1.0)
+     * @param point Absolute Windows mouse coordinates.
      */
-    void moveMouse(Common::NormalizedPoint point);
+    void moveMouse(Common::ScreenPoint point);
 
     /**
      * @brief Mouse button down.

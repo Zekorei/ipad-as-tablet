@@ -1,86 +1,26 @@
 cmake_minimum_required(VERSION 3.16)
-
 project(IpadInputSystemPC VERSION 0.1 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_COMPILE_COMMANDS ON)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+option(ENABLE_TESTS "Build tests" OFF)
 
+# Set default build type
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# Dependencies
-include(FetchContent)
+# Add cmake modules
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-FetchContent_Declare(
-    Catch2
-    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-    GIT_TAG v3.5.0
-)
+# Include configuration modules
+include(cmake/Compiler.cmake)
+include(cmake/Dependencies.cmake)
 
-FetchContent_MakeAvailable(Catch2)
+# Set output directory
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Core library
-add_library(ipad_input_pc_core
-    src/mapper.cpp
-    src/input.cpp
-)
+# Add subdirectories
+add_subdirectory(src)
 
-target_include_directories(ipad_input_pc_core 
-    PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/../shared    
-)
-
-# Executable target
-add_executable(ipad_input_pc
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
-)
-
-target_link_libraries(ipad_input_pc PRIVATE ipad_input_pc_core)
-
-if (WIN32)
-    target_link_libraries(ipad_input_pc PRIVATE ws2_32)
+if(ENABLE_TESTS)
+    add_subdirectory(tests)
 endif()
-
-add_custom_target(run_app
-    COMMAND ${CMAKE_BINARY_DIR}/bin/ipad_input_pc
-    DEPENDS ipad_input_pc
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-)
-
-# Tests
-enable_testing()
-
-add_executable(ipad_input_pc_tests
-    tests/test_mapper.cpp
-)
-
-target_link_libraries(ipad_input_pc_tests 
-    PRIVATE 
-        ipad_input_pc_core
-        Catch2::Catch2WithMain
-)
-
-add_test(NAME IpadInputSystemTests COMMAND ipad_input_pc_tests)
-
-add_custom_target(run_tests
-    COMMAND ${CMAKE_BINARY_DIR}/bin/ipad_input_pc_tests
-    DEPENDS ipad_input_pc_tests
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-)
-
-# Compiler warnings
-function(enable_warnings target)
-    if (MSVC)
-        target_compile_options(${target} PRIVATE /W4)
-    else()
-        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
-    endif()
-endfunction()
-
-enable_warnings(ipad_input_pc_core)
-enable_warnings(ipad_input_pc)
-enable_warnings(ipad_input_pc_tests)

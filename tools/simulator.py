@@ -32,6 +32,17 @@ def generate_input_circle(t):
 
     return x, y, pressure, flags, timestamp
 
+def generate_left_right_wave(t):
+    x = 0.5 * math.sin(2*t) + 0.5
+    y = 0.5
+
+    pressure = 1.0
+    flags = 0b00000010
+
+    timestamp = int(time.time() * 1000)
+
+    return x, y, pressure, flags, timestamp
+
 # generate alternate click and release every interval
 def generate_click(t):
     x = 0.5
@@ -56,7 +67,7 @@ def main():
     start = time.time()
     
     while (t := time.time() - start) < 10:
-        x, y, p, f, ts = generate_input_circle(t)
+        x, y, p, f, ts = generate_left_right_wave(t)
 
         packet = struct.pack(
             PACKET_FORMAT,
