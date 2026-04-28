@@ -4,7 +4,19 @@
 enable_testing()
 
 # Test executable
-add_executable(ipad_input_pc_tests test_mapper.cpp)
+add_executable(ipad_input_pc_tests 
+    test_math_vec2.cpp
+
+    test_pipeline_stages_aspect.cpp
+    test_pipeline_stages_clamp.cpp
+    test_pipeline_stages_display.cpp
+    test_pipeline_stages_subregion.cpp
+)
+
+# Add testing utilities
+target_include_directories(ipad_input_pc_tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils
+)
 
 target_link_libraries(ipad_input_pc_tests 
     PRIVATE 

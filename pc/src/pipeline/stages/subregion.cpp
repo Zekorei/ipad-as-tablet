@@ -3,15 +3,18 @@
 
 namespace Pipeline::Stages {
     Math::Vec2 Subregion::operator()(const Math::Vec2& point) {
-        Math::Vec2 halfSubregion = config.subregionDimensions.toVec2().scale(0.5f);
-        Math::Vec2 minSubregion = config.subregionCenter.toVec2() - halfSubregion;
-        Math::Vec2 maxSubregion = config.subregionCenter.toVec2() + halfSubregion;
+        Math::Vec2 subregionCenter = config.subregionCenter.toVec2();
+        Math::Vec2 subregionDimensions = config.subregionDimensions.toVec2();
+
+        Math::Vec2 halfSubregion = subregionDimensions.scale(0.5f);
+        Math::Vec2 minSubregion = subregionCenter - halfSubregion;
+        Math::Vec2 maxSubregion = subregionCenter + halfSubregion;
 
         // Clamp points outside of the active area to the edges
-        Math::Vec2 scaled = point.clamp(minSubregion, maxSubregion);
+        Math::Vec2 clamped = point.clamp(minSubregion, maxSubregion);
 
-        // Remap points to the unit square
-        scaled = (scaled - minSubregion) / (maxSubregion - minSubregion);
+        // Remap points to the unit square linearly
+        Math::Vec2 scaled = (clamped - subregionCenter) / subregionDimensions + Math::Vec2 { 0.5f };
 
         return scaled;
     }
