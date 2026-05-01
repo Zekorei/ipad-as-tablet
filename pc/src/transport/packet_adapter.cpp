@@ -46,11 +46,6 @@ namespace Input::Transport {
             return false;
         }
 
-        // Time is real
-        if (packet.timestamp < 0.0) {
-            return false;
-        }
-
         return true;
     }
 }
