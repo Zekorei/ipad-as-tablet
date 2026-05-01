@@ -21,7 +21,7 @@ namespace Protocol {
      * 
      * Must remain byte-compatible with the Swift implementation on the iPad side.
      */
-    struct InputPacket {
+    struct RawPacket {
         float x;            ///< Normalized X coordinate [0.0, 1.0]
         float y;            ///< Normalized Y coordinate [0.0, 1.0]
         float pressure;     ///< Normalized pressure [0.0, 1.0]
@@ -30,5 +30,5 @@ namespace Protocol {
         uint64_t timestamp; ///< Timestamp in milliseconds since epoch
     };
 
-    static_assert(sizeof(InputPacket) == 24, "InputPacket must be 24 bytes for protocol compatibility");
+    static_assert(sizeof(RawPacket) == 24, "InputPacket must be 24 bytes for protocol compatibility");
 }
