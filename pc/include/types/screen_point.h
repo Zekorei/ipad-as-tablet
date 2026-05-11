@@ -39,8 +39,8 @@ namespace Common {
          */
         static ScreenPoint fromNormalized(const NormalizedPoint& normed);
 
-        LONG x();
-        LONG y();
+        LONG x() const;
+        LONG y() const;
 
         void x(LONG v);
         void y(LONG v);
