@@ -18,9 +18,9 @@ namespace Common {
         );
     }
 
-    LONG ScreenPoint::x() { return x_; }
+    LONG ScreenPoint::x() const { return x_; }
 
-    LONG ScreenPoint::y() { return y_; }
+    LONG ScreenPoint::y() const { return y_; }
 
     void ScreenPoint::x(LONG v) {
         if (v < win_abs_mouse_min || v > win_abs_mouse_max) {
