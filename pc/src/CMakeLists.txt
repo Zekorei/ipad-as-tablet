@@ -2,7 +2,6 @@
 
 # Core library
 add_library(ipad_input_pc_core
-    input.cpp
     network.cpp
 )
 
