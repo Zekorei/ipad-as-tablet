@@ -3,7 +3,7 @@
 #include<optional>
 
 #include"types/input_packet.h"
-#include"shared/protocol.h"
+#include"protocol.h"
 
 namespace Input::Transport {
 

@@ -1,4 +1,4 @@
-#include"shared/protocol.h"
+#include"protocol.h"
 
 #include<catch2/catch_test_macros.hpp>
 

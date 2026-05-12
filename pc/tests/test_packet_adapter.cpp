@@ -1,5 +1,5 @@
 #include"transport/packet_adapter.h"
-#include"shared/protocol.h"
+#include"protocol.h"
 
 #include<catch2/catch_test_macros.hpp>
 #include"utils/test_utils.h"
