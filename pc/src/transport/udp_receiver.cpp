@@ -80,7 +80,8 @@ namespace Input::Transport {
         }
 
         return packet;
-#endif
+#else
         return std::nullopt;
+#endif
     }
 }

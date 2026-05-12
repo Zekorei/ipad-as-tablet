@@ -1,5 +1,5 @@
 #include"output/mouse_controller.h"
-#include"shared/protocol.h"
+#include"protocol.h"
 
 #include<windows.h>
 

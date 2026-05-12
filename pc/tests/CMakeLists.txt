@@ -7,12 +7,16 @@ enable_testing()
 add_executable(ipad_input_pc_tests 
     test_math_vec2.cpp
 
+    test_packet_adapter.cpp
+
     test_pipeline_input_pipeline.cpp
 
     test_pipeline_stages_aspect.cpp
     test_pipeline_stages_clamp.cpp
     test_pipeline_stages_display.cpp
     test_pipeline_stages_subregion.cpp
+
+    test_raw_packet.cpp
 )
 
 # Add testing utilities

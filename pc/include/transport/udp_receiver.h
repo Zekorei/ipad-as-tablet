@@ -3,7 +3,7 @@
 #include<optional>
 #include<cstdint>
 
-#include"shared/protocol.h"
+#include"protocol.h"
 
 #ifdef _WIN32
 #include<winsock2.h>
