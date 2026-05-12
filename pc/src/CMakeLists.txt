@@ -15,10 +15,12 @@ target_include_directories(ipad_input_pc_core
 enable_warnings(ipad_input_pc_core)
 
 # Add subdirectories for component sources
-add_subdirectory(math)
 add_subdirectory(config)
-add_subdirectory(types)
+add_subdirectory(math)
+add_subdirectory(output)
 add_subdirectory(pipeline)
+add_subdirectory(transport)
+add_subdirectory(types)
 
 # Main executable
 add_executable(ipad_input_pc main.cpp)
