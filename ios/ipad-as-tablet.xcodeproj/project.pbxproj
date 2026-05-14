@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9BDADB52FB51F0F005A2E43 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BDADB42FB51F0F005A2E43 /* protocol.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9BDAD742FB50E4C005A2E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BDAD5B2FB50E47005A2E43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BDAD622FB50E47005A2E43;
+			remoteInfo = "ipad-as-tablet";
+		};
+		A9BDAD7E2FB50E4D005A2E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BDAD5B2FB50E47005A2E43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BDAD622FB50E47005A2E43;
+			remoteInfo = "ipad-as-tablet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9BDAD632FB50E47005A2E43 /* ipad-as-tablet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ipad-as-tablet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDAD732FB50E4C005A2E43 /* ipad-as-tabletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipad-as-tabletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDAD7D2FB50E4D005A2E43 /* ipad-as-tabletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipad-as-tabletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDADB42FB51F0F005A2E43 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = protocol.swift; path = ../shared/protocol.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A9BDAD652FB50E47005A2E43 /* TabletInput */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TabletInput;
+			sourceTree = "<group>";
+		};
+		A9BDAD762FB50E4C005A2E43 /* ipad-as-tabletTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ipad-as-tabletTests";
+			sourceTree = "<group>";
+		};
+		A9BDAD802FB50E4D005A2E43 /* ipad-as-tabletUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ipad-as-tabletUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9BDAD602FB50E47005A2E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD702FB50E4C005A2E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD7A2FB50E4D005A2E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9BDAD5A2FB50E47005A2E43 = {
+			isa = PBXGroup;
+			children = (
+				A9BDADB42FB51F0F005A2E43 /* protocol.swift */,
+				A9BDAD652FB50E47005A2E43 /* TabletInput */,
+				A9BDAD762FB50E4C005A2E43 /* ipad-as-tabletTests */,
+				A9BDAD802FB50E4D005A2E43 /* ipad-as-tabletUITests */,
+				A9BDAD642FB50E47005A2E43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9BDAD642FB50E47005A2E43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9BDAD632FB50E47005A2E43 /* ipad-as-tablet.app */,
+				A9BDAD732FB50E4C005A2E43 /* ipad-as-tabletTests.xctest */,
+				A9BDAD7D2FB50E4D005A2E43 /* ipad-as-tabletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9BDAD622FB50E47005A2E43 /* ipad-as-tablet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BDAD872FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tablet" */;
+			buildPhases = (
+				A9BDAD5F2FB50E47005A2E43 /* Sources */,
+				A9BDAD602FB50E47005A2E43 /* Frameworks */,
+				A9BDAD612FB50E47005A2E43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A9BDAD652FB50E47005A2E43 /* TabletInput */,
+			);
+			name = "ipad-as-tablet";
+			packageProductDependencies = (
+			);
+			productName = "ipad-as-tablet";
+			productReference = A9BDAD632FB50E47005A2E43 /* ipad-as-tablet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9BDAD722FB50E4C005A2E43 /* ipad-as-tabletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BDAD8A2FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tabletTests" */;
+			buildPhases = (
+				A9BDAD6F2FB50E4C005A2E43 /* Sources */,
+				A9BDAD702FB50E4C005A2E43 /* Frameworks */,
+				A9BDAD712FB50E4C005A2E43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BDAD752FB50E4C005A2E43 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BDAD762FB50E4C005A2E43 /* ipad-as-tabletTests */,
+			);
+			name = "ipad-as-tabletTests";
+			packageProductDependencies = (
+			);
+			productName = "ipad-as-tabletTests";
+			productReference = A9BDAD732FB50E4C005A2E43 /* ipad-as-tabletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9BDAD7C2FB50E4D005A2E43 /* ipad-as-tabletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BDAD8D2FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tabletUITests" */;
+			buildPhases = (
+				A9BDAD792FB50E4D005A2E43 /* Sources */,
+				A9BDAD7A2FB50E4D005A2E43 /* Frameworks */,
+				A9BDAD7B2FB50E4D005A2E43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BDAD7F2FB50E4D005A2E43 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BDAD802FB50E4D005A2E43 /* ipad-as-tabletUITests */,
+			);
+			name = "ipad-as-tabletUITests";
+			packageProductDependencies = (
+			);
+			productName = "ipad-as-tabletUITests";
+			productReference = A9BDAD7D2FB50E4D005A2E43 /* ipad-as-tabletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9BDAD5B2FB50E47005A2E43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					A9BDAD622FB50E47005A2E43 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					A9BDAD722FB50E4C005A2E43 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A9BDAD622FB50E47005A2E43;
+					};
+					A9BDAD7C2FB50E4D005A2E43 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A9BDAD622FB50E47005A2E43;
+					};
+				};
+			};
+			buildConfigurationList = A9BDAD5E2FB50E47005A2E43 /* Build configuration list for PBXProject "ipad-as-tablet" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9BDAD5A2FB50E47005A2E43;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A9BDAD642FB50E47005A2E43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9BDAD622FB50E47005A2E43 /* ipad-as-tablet */,
+				A9BDAD722FB50E4C005A2E43 /* ipad-as-tabletTests */,
+				A9BDAD7C2FB50E4D005A2E43 /* ipad-as-tabletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9BDAD612FB50E47005A2E43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD712FB50E4C005A2E43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD7B2FB50E4D005A2E43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9BDAD5F2FB50E47005A2E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BDADB52FB51F0F005A2E43 /* protocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD6F2FB50E4C005A2E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BDAD792FB50E4D005A2E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BDAD752FB50E4C005A2E43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BDAD622FB50E47005A2E43 /* ipad-as-tablet */;
+			targetProxy = A9BDAD742FB50E4C005A2E43 /* PBXContainerItemProxy */;
+		};
+		A9BDAD7F2FB50E4D005A2E43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BDAD622FB50E47005A2E43 /* ipad-as-tablet */;
+			targetProxy = A9BDAD7E2FB50E4D005A2E43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A9BDAD852FB50E4D005A2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9BDAD862FB50E4D005A2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9BDAD882FB50E4D005A2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TabletInput/Preview Content\"";
+				DEVELOPMENT_TEAM = BH6ZZC9SAQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tablet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9BDAD892FB50E4D005A2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TabletInput/Preview Content\"";
+				DEVELOPMENT_TEAM = BH6ZZC9SAQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tablet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A9BDAD8B2FB50E4D005A2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tabletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipad-as-tablet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ipad-as-tablet";
+			};
+			name = Debug;
+		};
+		A9BDAD8C2FB50E4D005A2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tabletTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipad-as-tablet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ipad-as-tablet";
+			};
+			name = Release;
+		};
+		A9BDAD8E2FB50E4D005A2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tabletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ipad-as-tablet";
+			};
+			name = Debug;
+		};
+		A9BDAD8F2FB50E4D005A2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zekorei.ipad-as-tabletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ipad-as-tablet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9BDAD5E2FB50E47005A2E43 /* Build configuration list for PBXProject "ipad-as-tablet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BDAD852FB50E4D005A2E43 /* Debug */,
+				A9BDAD862FB50E4D005A2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BDAD872FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tablet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BDAD882FB50E4D005A2E43 /* Debug */,
+				A9BDAD892FB50E4D005A2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BDAD8A2FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tabletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BDAD8B2FB50E4D005A2E43 /* Debug */,
+				A9BDAD8C2FB50E4D005A2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BDAD8D2FB50E4D005A2E43 /* Build configuration list for PBXNativeTarget "ipad-as-tabletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BDAD8E2FB50E4D005A2E43 /* Debug */,
+				A9BDAD8F2FB50E4D005A2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9BDAD5B2FB50E47005A2E43 /* Project object */;
+}
