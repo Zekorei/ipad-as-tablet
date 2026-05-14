@@ -1,4 +1,4 @@
-#include "pipeline/stages/display.h"
+#include "input/pipeline/stages/display.h"
 #include <catch2/catch_test_macros.hpp>
 #include "utils/test_utils.h"
 

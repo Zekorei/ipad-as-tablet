@@ -1,4 +1,4 @@
-#include "pipeline/stages/subregion.h"
+#include "input/pipeline/stages/subregion.h"
 #include <catch2/catch_test_macros.hpp>
 #include "utils/test_utils.h"
 

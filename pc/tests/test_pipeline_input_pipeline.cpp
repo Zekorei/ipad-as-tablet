@@ -1,4 +1,4 @@
-#include "pipeline/input_pipeline.h"
+#include "input/pipeline/input_pipeline.h"
 #include <catch2/catch_test_macros.hpp>
 #include "utils/test_utils.h"
 

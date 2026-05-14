@@ -1,4 +1,4 @@
 # Input sources
 
-add_subdirectory(input)
+add_subdirectory(pipeline)
 add_subdirectory(transport)

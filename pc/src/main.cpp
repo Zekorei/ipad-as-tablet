@@ -2,8 +2,7 @@
 
 #include "input/transport/udp_receiver.h"
 #include "input/transport/packet_adapter.h"
-
-#include "pipeline/input_pipeline.h"
+#include "input/pipeline/input_pipeline.h"
 
 #include "output/mouse_controller.h"
 

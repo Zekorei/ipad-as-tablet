@@ -1,4 +1,4 @@
-#include "pipeline/stages/subregion.h"
+#include "input/pipeline/stages/subregion.h"
 #include "math/vec2.h"
 
 namespace Input::Pipeline::Stages {
