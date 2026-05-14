@@ -1,6 +1,6 @@
-#include"config/screen_info.h"
+#include "config/screen_info.h"
 
-#include<windows.h>
+#include <windows.h>
 
 namespace Config {
 

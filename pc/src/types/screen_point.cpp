@@ -1,6 +1,6 @@
-#include"types/screen_point.h"
+#include "types/screen_point.h"
 
-namespace Common {
+namespace Output {
 
     ScreenPoint::ScreenPoint(LONG x, LONG y) : x_(x), y_(y) {}
 
@@ -11,7 +11,7 @@ namespace Common {
         return { x, y };
     }
 
-    ScreenPoint ScreenPoint::fromNormalized(const Common::NormalizedPoint& normed) {
+    ScreenPoint ScreenPoint::fromNormalized(const Input::Pipeline::NormalizedPoint& normed) {
         return ScreenPoint::create(
             (LONG)(normed.x() * win_abs_mouse_max), 
             (LONG)(normed.y() * win_abs_mouse_max)

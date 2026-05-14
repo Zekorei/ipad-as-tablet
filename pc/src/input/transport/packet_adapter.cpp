@@ -1,6 +1,6 @@
-#include"transport/packet_adapter.h"
+#include "input/transport/packet_adapter.h"
 
-#include<cmath>
+#include <cmath>
 
 namespace Input::Transport {
 

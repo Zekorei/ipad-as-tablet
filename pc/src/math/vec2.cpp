@@ -1,4 +1,4 @@
-#include"math/vec2.h"
+#include "math/vec2.h"
 
 namespace Math {
     Vec2::Vec2() : x(0.0f), y(0.0f) {}

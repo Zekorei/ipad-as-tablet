@@ -1,7 +1,8 @@
-#include"pipeline/stages/subregion.h"
-#include"math/vec2.h"
+#include "pipeline/stages/subregion.h"
+#include "math/vec2.h"
 
-namespace Pipeline::Stages {
+namespace Input::Pipeline::Stages {
+
     Math::Vec2 Subregion::operator()(const Math::Vec2& point) {
         Math::Vec2 subregionCenter = config.subregionCenter.toVec2();
         Math::Vec2 subregionDimensions = config.subregionDimensions.toVec2();
