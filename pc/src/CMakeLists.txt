@@ -1,9 +1,7 @@
 # Core library and executable targets
 
 # Core library
-add_library(ipad_input_pc_core
-    network.cpp
-)
+add_library(ipad_input_pc_core STATIC)
 
 target_include_directories(ipad_input_pc_core 
     PUBLIC
