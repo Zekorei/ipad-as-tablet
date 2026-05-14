@@ -18,6 +18,6 @@ namespace Config {
         ScreenInfo(int width, int height);
 
         /// @brief Get the aspect ratio of the screen (width / height).
-        inline float aspectRatio() const;
+        float aspectRatio() const;
     };
 }
