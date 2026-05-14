@@ -1,9 +1,9 @@
 #pragma once
 
-#include<optional>
+#include <optional>
 
-#include"types/input_packet.h"
-#include"protocol.h"
+#include "types/input_packet.h"
+#include "protocol.h"
 
 namespace Input::Transport {
 

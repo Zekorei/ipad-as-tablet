@@ -1,8 +1,6 @@
 #pragma once
 
-#include<windows.h>
-
-namespace Common {
+namespace Config {
 
     /**
      * @brief Screen information including width and height in pixels. 
@@ -12,19 +10,14 @@ namespace Common {
         int height; ///< Screen height in pixels
 
         /// @brief Default constructor that fetches screen metrics from the system.
-        ScreenInfo() {
-            width = GetSystemMetrics(SM_CXSCREEN);
-            height = GetSystemMetrics(SM_CYSCREEN);
-        }
+        ScreenInfo();
 
         /**
          * @brief Construct screen info with specified width and height.
          */
-        ScreenInfo(int w, int h) : width(w), height(h) {}
+        ScreenInfo(int width, int height);
 
         /// @brief Get the aspect ratio of the screen (width / height).
-        inline float aspectRatio() const {
-            return static_cast<float>(width) / height;
-        };
+        inline float aspectRatio() const;
     };
 }

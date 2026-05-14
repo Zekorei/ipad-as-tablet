@@ -4,7 +4,7 @@
 
 #include"normalized_point.h"
 
-namespace Common {
+namespace Output {
 
     inline constexpr LONG win_abs_mouse_max = 65535L;   // max size of Windows absolute mouse coordinates
     inline constexpr LONG win_abs_mouse_min = 0L;       // min size of Windows absolute mouse coordinates
@@ -37,7 +37,7 @@ namespace Common {
          * @param normed Normalized point to conver.
          * @return ScreenPoint Returns the equivalent converted point.
          */
-        static ScreenPoint fromNormalized(const NormalizedPoint& normed);
+        static ScreenPoint fromNormalized(const Input::Pipeline::NormalizedPoint& normed);
 
         LONG x() const;
         LONG y() const;

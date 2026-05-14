@@ -1,16 +1,16 @@
 #pragma once
 
-#include"types/screen_info.h"
-#include"types/normalized_point.h"
-#include"types/screen_point.h"
-#include"math/vec2.h"
-#include"config/pipeline_config.h"
-#include"pipeline/stages/aspect.h"
-#include"pipeline/stages/clamp.h"
-#include"pipeline/stages/subregion.h"
-#include"pipeline/stages/display.h"
+#include "config/pipeline_config.h"
+#include "config/screen_info.h"
+#include "math/vec2.h"
+#include "types/normalized_point.h"
+#include "types/screen_point.h"
+#include "input/pipeline/stages/aspect.h"
+#include "input/pipeline/stages/clamp.h"
+#include "input/pipeline/stages/subregion.h"
+#include "input/pipeline/stages/display.h"
 
-namespace Pipeline {
+namespace Input::Pipeline {
     /**
      * @brief Combiner class for each processing stage of the pipeline.
      */
@@ -23,14 +23,14 @@ namespace Pipeline {
          * @param config The config used for pipeline stages.
          * @param screenInfo The screen data used for pipeline stages.
          */
-        explicit InputPipeline(const Config::PipelineConfig& config, const Common::ScreenInfo& screenInfo);
+        explicit InputPipeline(const Config::PipelineConfig& config, const Config::ScreenInfo& screenInfo);
 
-        Common::ScreenPoint process(const Math::Vec2& point);
+        Output::ScreenPoint process(const Math::Vec2& point);
     
 
     private:
         Config::PipelineConfig config;
-        Common::ScreenInfo screenInfo;
+        Config::ScreenInfo screenInfo;
 
         Stages::Subregion subregion;
         Stages::Aspect aspect;

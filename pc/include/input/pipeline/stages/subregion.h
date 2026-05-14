@@ -1,9 +1,9 @@
 #pragma once
 
-#include"config/pipeline_config.h"
-#include"math/vec2.h"
+#include "config/pipeline_config.h"
+#include "math/vec2.h"
 
-namespace Pipeline::Stages {
+namespace Input::Pipeline::Stages {
 
     /**
      * @brief The subregion mapping stage of the pipeline. Binds config to get the subregion settings.

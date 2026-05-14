@@ -1,10 +1,10 @@
 #pragma once
 
-#include"math/vec2.h"
-#include"config/pipeline_config.h"
-#include"types/normalized_point.h"
+#include "math/vec2.h"
+#include "config/pipeline_config.h"
+#include "types/normalized_point.h"
 
-namespace Pipeline::Stages {
+namespace Input::Pipeline::Stages {
     /**
      * @brief Clamping stage of the pipeline. No bindings.
      * 
@@ -15,8 +15,8 @@ namespace Pipeline::Stages {
          * @brief Clamps each component to be within the interval `[0, 1]`.
          * 
          * @param point Input point
-         * @return Common::NormalizedPoint Returns a point that is normalized by clamping
+         * @return NormalizedPoint Returns a point that is normalized by clamping
          */
-        Common::NormalizedPoint operator()(const Math::Vec2& point);
+        NormalizedPoint operator()(const Math::Vec2& point);
     };
 }
