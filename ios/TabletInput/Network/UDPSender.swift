@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-final class UDPSender {
+final class UDPSender: TransportClient {
     
     private let connection: NWConnection
     
@@ -24,6 +24,13 @@ final class UDPSender {
         
         connection.start(queue: .global())
         print("Connected to: \(host):\(port)")
+    }
+    
+    convenience init(endpoint: Endpoint) {
+        self.init(
+            host: endpoint.host,
+            port: endpoint.port
+        )
     }
     
     func send(_ data: Data) {

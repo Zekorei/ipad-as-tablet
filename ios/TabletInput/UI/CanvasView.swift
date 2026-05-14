@@ -19,12 +19,10 @@ struct CanvasViewRepresentable: UIViewRepresentable {
 
 final class TouchView: UIView {
     
-    private let sender = UDPSender(
-        host: "192.168.2.21",
-        port: 5000
-    )
+    private let sender: TransportClient =
+        UDPSender(endpoint: ConnectionConfig.endpoint)
     
-    override init(frame: CGRect) {1
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .black
