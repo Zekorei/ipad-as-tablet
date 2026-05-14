@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A9BDADB52FB51F0F005A2E43 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BDADB42FB51F0F005A2E43 /* protocol.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A9BDAD742FB50E4C005A2E43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		A9BDAD632FB50E47005A2E43 /* ipad-as-tablet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ipad-as-tablet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BDAD732FB50E4C005A2E43 /* ipad-as-tabletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipad-as-tabletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BDAD7D2FB50E4D005A2E43 /* ipad-as-tabletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ipad-as-tabletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BDADB42FB51F0F005A2E43 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = protocol.swift; path = ../shared/protocol.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		A9BDAD5A2FB50E47005A2E43 = {
 			isa = PBXGroup;
 			children = (
+				A9BDADB42FB51F0F005A2E43 /* protocol.swift */,
 				A9BDAD652FB50E47005A2E43 /* TabletInput */,
 				A9BDAD762FB50E4C005A2E43 /* ipad-as-tabletTests */,
 				A9BDAD802FB50E4D005A2E43 /* ipad-as-tabletUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BDADB52FB51F0F005A2E43 /* protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +402,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TabletInput/Preview Content\"";
 				DEVELOPMENT_TEAM = BH6ZZC9SAQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -424,7 +431,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TabletInput/Preview Content\"";
 				DEVELOPMENT_TEAM = BH6ZZC9SAQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
