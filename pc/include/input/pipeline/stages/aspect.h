@@ -1,9 +1,9 @@
 #pragma once
 
-#include"types/screen_info.h"
-#include"math/vec2.h"
+#include "config/screen_info.h"
+#include "math/vec2.h"
 
-namespace Pipeline::Stages {
+namespace Input::Pipeline::Stages {
 
     /**
      * @brief The aspect ratio correction stage of the pipeline. Binds screen info data to get the aspect
@@ -12,7 +12,7 @@ namespace Pipeline::Stages {
      * Scales a point in the full normalized space according to the aspect ratio of the output screen.
      */
     struct Aspect {
-        Common::ScreenInfo screenInfo;
+        Config::ScreenInfo screenInfo;
         
         /**
          * @brief Scale a point in the full normalized space according to the aspect ratio of the screen.

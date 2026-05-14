@@ -1,11 +1,11 @@
 #pragma once
 
-#include<cassert>
-#include<stdexcept>
+#include <cassert>
+#include <stdexcept>
 
-#include"math/vec2.h"
+#include "math/vec2.h"
 
-namespace Common {
+namespace Input::Pipeline {
 
     inline constexpr float norm_min = 0.0f; // max value for a normalized value
     inline constexpr float norm_max = 1.0f; // min value for a normalized value

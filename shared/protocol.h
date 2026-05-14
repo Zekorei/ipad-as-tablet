@@ -1,6 +1,6 @@
 #pragma once
 
-#include<cstdint>
+#include <cstdint>
 
 /**
  * @brief Shared protocol definitions between PC and iPad components on the PC side.

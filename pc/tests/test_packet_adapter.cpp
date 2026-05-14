@@ -1,8 +1,9 @@
-#include"transport/packet_adapter.h"
-#include"protocol.h"
+#include "input/transport/packet_adapter.h"
+#include <catch2/catch_test_macros.hpp>
+#include "utils/test_utils.h"
 
-#include<catch2/catch_test_macros.hpp>
-#include"utils/test_utils.h"
+#include "protocol.h"
+
 
 using namespace Input::Transport;
 

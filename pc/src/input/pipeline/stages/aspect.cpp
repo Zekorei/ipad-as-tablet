@@ -1,7 +1,8 @@
-#include"pipeline/stages/aspect.h"
-#include"math/vec2.h"
+#include "input/pipeline/stages/aspect.h"
+#include "math/vec2.h"
 
-namespace Pipeline::Stages {
+namespace Input::Pipeline::Stages {
+
     Math::Vec2 Aspect::operator()(const Math::Vec2& point) {
         float aspectRatio;
         auto corrected = point;

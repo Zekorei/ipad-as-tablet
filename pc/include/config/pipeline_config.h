@@ -1,6 +1,6 @@
 #pragma once
 
-#include"types/normalized_point.h"
+#include "types/normalized_point.h"
 
 /**
  * @brief Config structs for specific settings and options.
@@ -18,20 +18,20 @@ namespace Config {
      * 
      */
     struct PipelineConfig {
-        Common::NormalizedPoint subregionCenter;        ///< Normalized center of the active area on the tablet `[0.0, 1.0]`.
-        Common::NormalizedPoint subregionDimensions;    ///< Normalized dimensions of the active area on the tablet.
+        Input::Pipeline::NormalizedPoint subregionCenter;           ///< Normalized center of the active area on the tablet `[0.0, 1.0]`.
+        Input::Pipeline::NormalizedPoint subregionDimensions;       ///< Normalized dimensions of the active area on the tablet.
 
-        float sensitivity;                              ///< Sensitivity multiplier for input scaling
+        float sensitivity;                                          ///< Sensitivity multiplier for input scaling
 
-        bool lockAspect;                                ///< Forces aspect ratio correction
+        bool lockAspect;                                            ///< Forces aspect ratio correction
 
         /// @brief Default constructor. Assumes the subregion is the full normalized area and no sensitivity correction.
         PipelineConfig();
 
         /// @brief Parameterized constructor.
         PipelineConfig(
-            Common::NormalizedPoint center, 
-            Common::NormalizedPoint dimensions, 
+            Input::Pipeline::NormalizedPoint center, 
+            Input::Pipeline::NormalizedPoint dimensions, 
             float sensitivity = default_sensitivity, 
             bool lockAspect = default_aspect_lock
         );

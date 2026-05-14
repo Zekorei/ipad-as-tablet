@@ -1,7 +1,7 @@
-#include"types/normalized_point.h"
-#include"math/vec2.h"
+#include "types/normalized_point.h"
+#include "math/vec2.h"
 
-namespace Common {
+namespace Input::Pipeline {
     NormalizedPoint::NormalizedPoint(float x, float y) : x_(x), y_(y) {}
 
     NormalizedPoint NormalizedPoint::create(float x, float y) {

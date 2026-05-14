@@ -1,9 +1,9 @@
-#include"math/vec2.h"
-
-#include<catch2/catch_test_macros.hpp>
-#include"utils/test_utils.h"
+#include "math/vec2.h"
+#include <catch2/catch_test_macros.hpp>
+#include "utils/test_utils.h"
 
 using namespace Math;
+
 
 TEST_CASE("default_constructor", "[vec2]") {
     Vec2 p;

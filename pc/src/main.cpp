@@ -1,14 +1,13 @@
-#include<iostream>
+#include <iostream>
 
-#include"transport/udp_receiver.h"
-#include"transport/packet_adapter.h"
+#include "input/transport/udp_receiver.h"
+#include "input/transport/packet_adapter.h"
+#include "input/pipeline/input_pipeline.h"
 
-#include"pipeline/input_pipeline.h"
+#include "output/mouse_controller.h"
 
-#include"output/mouse_controller.h"
-
-#include"types/screen_info.h"
-#include"config/pipeline_config.h"
+#include "config/screen_info.h"
+#include "config/pipeline_config.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -18,14 +17,14 @@ constexpr int PORT = 5000;
 int main() {
     try {
         // Configs
-        Common::ScreenInfo screenInfo;
+        Config::ScreenInfo screenInfo;
         Config::PipelineConfig config;
 
 
         // Build modules
         Input::Transport::UDPReceiver receiver{PORT};
         Input::Transport::PacketAdapter adapter{};
-        Pipeline::InputPipeline mapper{config, screenInfo};
+        Input::Pipeline::InputPipeline mapper{config, screenInfo};
         Output::MouseController mouse{};
 
         // Main loop

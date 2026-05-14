@@ -15,10 +15,9 @@ enable_warnings(ipad_input_pc_core)
 
 # Add subdirectories for component sources
 add_subdirectory(config)
+add_subdirectory(input)
 add_subdirectory(math)
 add_subdirectory(output)
-add_subdirectory(pipeline)
-add_subdirectory(transport)
 add_subdirectory(types)
 
 # Main executable

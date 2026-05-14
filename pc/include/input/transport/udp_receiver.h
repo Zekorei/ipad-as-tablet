@@ -1,12 +1,12 @@
 #pragma once
 
-#include<optional>
-#include<cstdint>
+#include <optional>
+#include <cstdint>
 
-#include"protocol.h"
+#include "protocol.h"
 
 #ifdef _WIN32
-#include<winsock2.h>
+#include <winsock2.h>
 #endif
 
 namespace Input::Transport {

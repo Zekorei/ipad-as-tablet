@@ -1,11 +1,11 @@
-#include"output/mouse_controller.h"
-#include"protocol.h"
+#include "output/mouse_controller.h"
+#include "protocol.h"
 
-#include<windows.h>
+#include <windows.h>
 
 namespace Output {
 
-    void MouseController::handle(const Input::InputPacket& packet, const Common::ScreenPoint& point) {
+    void MouseController::handle(const Input::InputPacket& packet, const Output::ScreenPoint& point) {
         bool moveEvent = (packet.flags & Protocol::MOVE) != 0;
         bool downEvent = (packet.flags & Protocol::DOWN) != 0;
         bool upEvent = (packet.flags & Protocol::UP) != 0;
@@ -15,7 +15,7 @@ namespace Output {
         if (upEvent && isDown) mouseUp();
     }
 
-    void MouseController::move(const Common::ScreenPoint& point) const {
+    void MouseController::move(const Output::ScreenPoint& point) const {
         INPUT input{};
 
         input.type = INPUT_MOUSE;
