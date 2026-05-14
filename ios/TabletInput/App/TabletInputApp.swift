@@ -9,6 +9,13 @@ import SwiftUI
 
 @main
 struct ipad_as_tabletApp: App {
+    private let discovery =
+        BonjourDiscoveryService()
+    
+    init() {
+        discovery.start()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
