@@ -30,7 +30,9 @@ namespace Output {
         INPUT input{};
 
         input.type = INPUT_MOUSE;
-        input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+        input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
+
+        isDown = false;
 
         SendInput(1, &input, sizeof(INPUT));
     }
@@ -39,7 +41,9 @@ namespace Output {
         INPUT input{};
 
         input.type = INPUT_MOUSE;
-        input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
+        input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+
+        isDown = true;
 
         SendInput(1, &input, sizeof(INPUT));
     }
