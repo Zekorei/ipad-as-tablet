@@ -11,7 +11,11 @@ import UIKit
 struct CanvasViewRepresentable: UIViewRepresentable {
     
     func makeUIView(context: Context) -> TouchView {
-        TouchView()
+        TouchView(
+            frame: .zero,
+            modeController: InputModeController(),
+            sender: UDPSender(endpoint: ConnectionConfig.endpoint)
+        )
     }
     
     func updateUIView(_ uiView: TouchView, context: Context) {}
@@ -19,13 +23,24 @@ struct CanvasViewRepresentable: UIViewRepresentable {
 
 final class TouchView: UIView {
     
-    private let sender: TransportClient =
-        UDPSender(endpoint: ConnectionConfig.endpoint)
+    private let modeController: InputModeController
+    private let sender: TransportClient
+        
+    private var pencilHandler: PencilInteractionHandler?
     
-    override init(frame: CGRect) {
+    init(
+        frame: CGRect,
+        modeController: InputModeController,
+        sender: TransportClient
+    ) {
+        self.modeController = modeController
+        self.sender = sender
+        
         super.init(frame: frame)
         
         backgroundColor = .black
+        
+        configurePencilInteraction()
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +51,11 @@ final class TouchView: UIView {
         _ touches: Set<UITouch>,
         with event: UIEvent?
     ) {
-        handle(touches, flags: [.down, .move])
+        var flags: InputFlags = .move
+        
+        if (modeController.isWritingEnabled) { flags.insert(.down) }
+        
+        handle(touches, flags: flags)
     }
     
     override func touchesMoved(
@@ -89,5 +108,17 @@ final class TouchView: UIView {
         let data = withUnsafeBytes(of: &packet) { Data($0) }
         
         sender.send(data)
+    }
+    
+    private func configurePencilInteraction() {
+        
+        let handler = PencilInteractionHandler(
+            modeController: modeController
+        )
+        
+        let interaction = UIPencilInteraction(delegate: handler)
+        
+        addInteraction(interaction)
+        pencilHandler = handler
     }
 }
